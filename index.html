@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>ECE Roadmap</title>
+</head>
+
+<body background="./pictures/home.jpg">
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="index.html">ECE ROADMAP</a></div>
+            <ul class="links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="faqs.html">FAQ's</a></li>
+                <li><a href="archives.html">Archives</a></li>
+            </ul>
+            <a href="getstart.html" class="action_btn">Get Start</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <li><a href="about.html">About</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="faqs.html">FAQ's</a></li>
+                <li><a href="archives.html">Archives</a></li>
+                <li><a href="getstart.html" class="action_btn">Get Start</a></li>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <h1 class="heading">Welcome Future Engineer!</h1>
+        <div class="timer">
+            <div class="sub_timer">
+                <h1 id="day" class="digit">00</h1>
+                <p class="digit_name">Days</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="hour" class="digit">00</h1>
+                <p class="digit_name">Hours</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="min" class="digit">00</h1>
+                <p class="digit_name">Minutes</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="sec" class="digit">00</h1>
+                <p class="digit_name">Seconds</p>
+            </div>
+        </div>
+            <br>
+            <br>
+            <br>
+            <br>
+        <p class="description">“HARD WORK BEATS TALENT WHEN TALENT DOESN’T WORK HARD.”  — Tim Notke </p>
+    </div>
+
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars'
+        }
+
+        <!--COUNTER-->
+        var target_mili_sec = new Date("Oct 19, 2024 8:00:0").getTime();
+          function timer() {
+              var now_mili_sec = new Date().getTime();
+              var remaining_sec = Math.floor( (target_mili_sec - now_mili_sec) / 1000 );
+
+              var day = Math.floor(remaining_sec / (3600 * 24));
+              var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+              var min = Math.floor((remaining_sec % 3600) / 60);
+              var sec = Math.floor(remaining_sec % 60);
+
+              document.querySelector("#day").innerHTML = day;
+              document.querySelector("#hour").innerHTML = hour;
+              document.querySelector("#min").innerHTML = min;
+              document.querySelector("#sec").innerHTML = sec;
+          }
+
+          setInterval(timer, 1000); //1000 it means 1 sec
+    </script>
+
+</body>
+</html>
